@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--nameSpace 易错点：此处应该是类的路径，而不是包的路径-->
+<mapper namespace="com.boss.cartdemo.dao.ItemDao">
+    <select id="findAll" resultType="com.boss.cartdemo.entity.Item">
+        select id,product_name,specification,count,using_place,need_time from item ;
+    </select>
+
+    <select id="getItemById" parameterType="int" resultType="com.boss.cartdemo.entity.Item">
+        select id,product_name,specification,count,using_place,need_time from item where id=#{id};
+    </select>
+
+    <insert id="saveItem" parameterType="com.boss.cartdemo.entity.Item">
+        insert into item(product_name,specification,count,using_place,need_time)
+        values(#{productName},#{specification},#{count},#{usingPlace},#{needTime})
+    </insert>
+
+    <update id="updateItem" parameterType="com.boss.cartdemo.entity.Item">
+        update item set product_name=#{productName},specification=#{specification},
+        count=#{count},using_place=#{usingPlace},need_time=#{needTime} where id=#{id}
+    </update>
+
+    <delete id="removeItem" parameterType="int">
+        delete from item where id=#{id}
+    </delete>
+</mapper>

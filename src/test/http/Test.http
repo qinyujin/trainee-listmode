@@ -1,0 +1,28 @@
+GET http://localhost:8080/Cart/queryCart
+Accept: application/json
+
+###
+POST http://localhost:8080/Cart/addItem
+Content-Type: application/json
+
+{
+  "productName": "Redmi",
+  "specification": "20Inch",
+  "count": 7,
+  "usingPlace": "GuiZhou",
+  "needTime": 30
+}
+
+###
+POST http://localhost:8080/Cart/removeItem
+Content-Type: application/json
+
+{
+  "productName": "boss"
+}
+
+###
+
+
+GET http://localhost:8080/Cart/saveCart
+Content-Type: application/json
