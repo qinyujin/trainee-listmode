@@ -1,19 +1,20 @@
+### 查询购物车
 GET http://localhost:8080/Cart/queryCart
 Accept: application/json
 
-###
+### 添加item至购物车
 POST http://localhost:8080/Cart/addItem
 Content-Type: application/json
 
 {
-  "productName": "Redmi",
-  "specification": "20Inch",
-  "count": 7,
-  "usingPlace": "GuiZhou",
-  "needTime": 30
+  "productName": "BlackShark3",
+  "specification": "22Inch",
+  "count": 5,
+  "usingPlace": "BeiJing",
+  "needTime": 24
 }
 
-###
+### 删除购物车中的item
 POST http://localhost:8080/Cart/removeItem
 Content-Type: application/json
 
@@ -21,8 +22,32 @@ Content-Type: application/json
   "productName": "boss"
 }
 
-###
+### 删除数据库中的item
+POST http://localhost:8080/Cart/removeSavedItem
+Content-Type: application/json
 
+{
+  "productName": "Mi10"
+}
+
+### 更新数据库中的items
+PATCH http://localhost:8080/Cart/updateSavedItem
+Content-Type: application/json
+
+{
+  "id": 9,
+  "productName": "Mi10Pro",
+  "specification": "10Inch",
+  "count": 2,
+  "usingPlace": "China",
+  "needTime": 2
+}
+
+### 把购物车保存至数据库
 
 GET http://localhost:8080/Cart/saveCart
+Content-Type: application/json
+
+###  查询数据库中的items
+GET  http://localhost:8080/Cart/querySavedCart
 Content-Type: application/json

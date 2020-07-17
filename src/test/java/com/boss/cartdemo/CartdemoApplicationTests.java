@@ -1,7 +1,6 @@
 package com.boss.cartdemo;
 
 import com.boss.cartdemo.dao.ItemDao;
-import com.boss.cartdemo.entity.Cart;
 import com.boss.cartdemo.entity.Item;
 import com.boss.cartdemo.service.CartService;
 import lombok.extern.slf4j.Slf4j;
@@ -46,7 +45,7 @@ class CartdemoApplicationTests {
     public void TestUpdate(){
         Item item = new Item();
 
-        item.setId(2);
+        item.setId(9);
         item.setProductName("Honor");
         item.setCount(99);
         item.setNeedTime(12);
@@ -57,35 +56,35 @@ class CartdemoApplicationTests {
 
     @Test
     public void TestDelete(){
-        System.out.println(itemDao.removeItem(2));
+        System.out.println(itemDao.removeItem("Redmi"));
     }
 
-    @Test
-    public void TestSingleton(){
-        HashMap<String, Item> items = Cart.getInstance().getItems();
-
-        List<Item> all = itemDao.findAll();
-
-        for (Item item : all) {
-            items.put(item.getProductName(), item);
-        }
-
-        Set<Map.Entry<String, Item>> entries = items.entrySet();
-
-        Iterator<Map.Entry<String, Item>> iterator = entries.iterator();
-        while (iterator.hasNext()){
-            System.out.println(iterator.next());
-        }
-    }
+//    @Test
+//    public void TestSingleton(){
+////        HashMap<String, Item> items = Cart.getInstance().getItems();
+//
+//        List<Item> all = itemDao.findAll();
+//
+//        for (Item item : all) {
+//            items.put(item.getProductName(), item);
+//        }
+//
+//        Set<Map.Entry<String, Item>> entries = items.entrySet();
+//
+//        Iterator<Map.Entry<String, Item>> iterator = entries.iterator();
+//        while (iterator.hasNext()){
+//            System.out.println(iterator.next());
+//        }
+//    }
 
     @Test
     public void TestCartService(){
         List<Item> all = itemDao.findAll();
-        cartService.addItem(all.get(1));
-        cartService.addItem(all.get(0));
+//        cartService.addItem(all.get(1));
+//        cartService.addItem(all.get(0));
 
 //        System.out.println(Cart.getInstance().getItems().get("Mi"));
-        System.out.println(Cart.getInstance().getItems().get("Mi"));
+//        System.out.println(Cart.getInstance().getItems().get("Mi"));
 
 
     }

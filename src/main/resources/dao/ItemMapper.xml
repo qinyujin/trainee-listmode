@@ -20,7 +20,7 @@
         count=#{count},using_place=#{usingPlace},need_time=#{needTime} where id=#{id}
     </update>
 
-    <delete id="removeItem" parameterType="int">
-        delete from item where id=#{id}
+    <delete id="removeItem" parameterType="String">
+        delete from item where product_name=#{productName}
     </delete>
 </mapper>
