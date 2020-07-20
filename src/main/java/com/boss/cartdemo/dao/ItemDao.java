@@ -14,12 +14,14 @@ public interface ItemDao {
 
     /**
      * 查询所有数据库中的items
+     *
      * @return
      */
     List<Item> findAll();
 
     /**
      * 通过id查询单个item
+     *
      * @param id
      * @return
      */
@@ -27,13 +29,22 @@ public interface ItemDao {
 
     /**
      * 把item存入数据库
+     *
      * @param item
      * @return
      */
     boolean saveItem(Item item);
 
     /**
+     * 插入多个数据
+     * @param items
+     * @return
+     */
+    boolean saveItemList(List items);
+
+    /**
      * 更新item的值
+     *
      * @param item
      * @return
      */
@@ -41,6 +52,7 @@ public interface ItemDao {
 
     /**
      * 移除item
+     *
      * @param name
      * @return
      */

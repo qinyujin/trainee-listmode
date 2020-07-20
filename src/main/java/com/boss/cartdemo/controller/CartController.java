@@ -64,7 +64,7 @@ public class CartController {
      */
     @GetMapping("/queryCart")
     public Map queryCart(HttpServletRequest request) {
-       return (Map<String, Item>) request.getSession().getAttribute(CART);
+        return (Map<String, Item>) request.getSession().getAttribute(CART);
     }
 
     /**
@@ -83,6 +83,8 @@ public class CartController {
         Collection<Item> values = map.values();
 
         List<Item> list = new ArrayList<>();
+
+        //这个地方可以使用sql语句优化
         for (Item value : values) {
             list.add(value);
         }
@@ -116,6 +118,7 @@ public class CartController {
 
     /**
      * 更新数据库item
+     *
      * @param item
      */
     @PatchMapping("/updateSavedItem")

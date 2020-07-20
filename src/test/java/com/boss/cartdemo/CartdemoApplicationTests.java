@@ -42,6 +42,29 @@ class CartdemoApplicationTests {
     }
 
     @Test
+    public void TestInsertAll(){
+        Item i1 = new Item();
+        i1.setProductName("Honor");
+        i1.setSpecification("12");
+        i1.setUsingPlace("America");
+        i1.setNeedTime(24);
+        i1.setCount(9);
+
+        Item i2 = new Item();
+        i2.setProductName("Honor pro");
+        i2.setSpecification("12");
+        i2.setUsingPlace("America");
+        i2.setNeedTime(24);
+        i2.setCount(9);
+
+        List list = new ArrayList();
+        list.add(i1);
+        list.add(i2);
+
+        itemDao.saveItemList(list);
+    }
+
+    @Test
     public void TestUpdate(){
         Item item = new Item();
 

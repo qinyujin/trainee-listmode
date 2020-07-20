@@ -10,9 +10,18 @@
         select id,product_name,specification,count,using_place,need_time from item where id=#{id};
     </select>
 
+    <!--单条数据插入-->
     <insert id="saveItem" parameterType="com.boss.cartdemo.entity.Item">
         insert into item(product_name,specification,count,using_place,need_time)
         values(#{productName},#{specification},#{count},#{usingPlace},#{needTime})
+    </insert>
+
+    <insert id="saveItemList" parameterType="java.util.List">
+        insert into item(product_name,specification,count,using_place,need_time) values
+        <!--item就是List里每一项的对象名，要用","分割每一条数据，最后要";"结尾-->
+        <foreach collection="list" item="item" separator="," close=";">
+            (#{item.productName},#{item.specification},#{item.count},#{item.usingPlace},#{item.needTime})
+        </foreach>
     </insert>
 
     <update id="updateItem" parameterType="com.boss.cartdemo.entity.Item">
